@@ -1,5 +1,6 @@
 import ExtrairRelatorio.ac
 import ExtrairRelatorio.direta
+import ExtrairRelatorio.macrosafe
 import ExtrairRelatorio.quality
 
 #dia_especifico = datetime.date(2024, 6, 7)
@@ -68,4 +69,8 @@ def gerenciarDireta():
                     r"https://arvirtus.acsoluti.com.br/certdig/fechamento",
                     r"https://arcigcd.acsoluti.com.br/certdig/fechamento"]
 
-    ExtrairRelatorio.direta.minha_tarefa_direta(arsDireta, dataInicio, dataFim)
+
+def gerenciarMacrosafe():
+    arsDireta = [r"https://arbndcdesi.acsoluti.com.br/certdig/fechamento"]
+
+    ExtrairRelatorio.macrosafe.minha_tarefa_macrosafe(arsDireta, dataInicio, dataFim)

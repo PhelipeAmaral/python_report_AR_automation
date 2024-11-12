@@ -4,6 +4,7 @@ import datetime
 import ExtrairRelatorio.Gerenciar
 import TransferirPasta.ac
 import TransferirPasta.direta
+import TransferirPasta.macrosafe
 import TransferirPasta.quality
 
 
@@ -21,6 +22,9 @@ if dia_da_semana < 5:
     # AC
     schedule.every().day.at("00:50").do(ExtrairRelatorio.Gerenciar.gerenciarAC)
     schedule.every().day.at("01:15").do(TransferirPasta.ac.transferir_pasta)
+    # Macrosafe
+    schedule.every().day.at("16:32").do(ExtrairRelatorio.Gerenciar.gerenciarMacrosafe)
+    schedule.every().day.at("16:41").do(TransferirPasta.macrosafe.transferir_pasta)
 
 
 while True:
