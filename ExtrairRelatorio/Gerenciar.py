@@ -65,6 +65,7 @@ def gerenciarQuality():
 
 def gerenciarDireta():
     arsDireta = [r"https://arfast.acsoluti.com.br/certdig/fechamento",
-                    r"https://arvirtus.acsoluti.com.br/certdig/fechamento"]
+                    r"https://arvirtus.acsoluti.com.br/certdig/fechamento",
+                    r"https://arcigcd.acsoluti.com.br/certdig/fechamento"]
 
     ExtrairRelatorio.direta.minha_tarefa_direta(arsDireta, dataInicio, dataFim)

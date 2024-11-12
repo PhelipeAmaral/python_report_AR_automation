@@ -5,8 +5,8 @@ import subprocess
 def transferir_pasta():
     
     # Caminhos para as pastas
-    pasta_downloads = os.path.expanduser('~/Downloads')  
-    pasta_documentos = os.path.expanduser('~/Desktop\Relatorio') 
+    pasta_downloads = os.path.expanduser('~/Downloads')
+    pasta_documentos = os.path.expanduser('~/Desktop/Relatorio/relatorio_ac')
 
 
     # Lista de arquivos
@@ -20,7 +20,29 @@ def transferir_pasta():
                 'fechamento (7).csv',
                 'fechamento (8).csv',
                 'fechamento (9).csv',
-                'fechamento (10).csv']
+                'fechamento (10).csv',
+                'fechamento (11).csv',
+                'fechamento (12).csv',
+                'fechamento (13).csv',
+                'fechamento (14).csv',
+                'fechamento (15).csv',
+                'fechamento (16).csv',
+                'fechamento (17).csv',
+                'fechamento (18).csv',
+                'fechamento (19).csv',
+                'fechamento (20).csv',
+                'fechamento (21).csv',
+                'fechamento (22).csv',
+                'fechamento (23).csv',
+                'fechamento (24).csv',
+                'fechamento (25).csv',
+                'fechamento (26).csv',
+                'fechamento (27).csv',
+                'fechamento (28).csv',
+                'fechamento (29).csv',
+                'fechamento (30).csv',
+                'fechamento (31).csv',
+                'fechamento (32).csv']
 
 
     for item in arquivosCSV:
@@ -41,6 +63,6 @@ def transferir_pasta():
 
 def juntar_pastas():
 
-    diretorio = r"C:\Users\Direta\Desktop\Relatorio\join_quality.exe"
+    diretorio = r"C:\Users\Direta\Desktop\Relatorio\relatorio_ac\join_ac.exe"
 
     subprocess.run([diretorio])

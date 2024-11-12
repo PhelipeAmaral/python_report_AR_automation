@@ -1,16 +1,26 @@
 import schedule
 import time
+import datetime
 import ExtrairRelatorio.Gerenciar
+import TransferirPasta.ac
 import TransferirPasta.direta
 import TransferirPasta.quality
 
 
-#schedule.every().day.at("10:49").do(ExtrairRelatorio.Gerenciar.gerenciarQuality)
-#schedule.every().day.at("00:20").do(TransferirPasta.quality.transferir_pasta)
-schedule.every().day.at("11:38").do(ExtrairRelatorio.Gerenciar.gerenciarDireta)
-schedule.every().day.at("00:20").do(TransferirPasta.direta.transferir_pasta)
+dia_da_semana = datetime.datetime.now().weekday()
+    
+    # Agendando o trabalho para os dias úteis (segunda a sexta)
+if dia_da_semana < 5:
 
-schedule.every().day.at("00:30").do(ExtrairRelatorio.Gerenciar.gerenciarAC)
+    # Qualitycert
+    schedule.every().day.at("00:10").do(ExtrairRelatorio.Gerenciar.gerenciarQuality)
+    schedule.every().day.at("00:20").do(TransferirPasta.quality.transferir_pasta)
+    # Direta
+    schedule.every().day.at("00:30").do(ExtrairRelatorio.Gerenciar.gerenciarDireta)
+    schedule.every().day.at("00:40").do(TransferirPasta.direta.transferir_pasta)
+    # AC
+    schedule.every().day.at("00:50").do(ExtrairRelatorio.Gerenciar.gerenciarAC)
+    schedule.every().day.at("01:15").do(TransferirPasta.ac.transferir_pasta)
 
 
 while True:
