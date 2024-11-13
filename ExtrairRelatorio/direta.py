@@ -40,7 +40,7 @@ def minha_tarefa_direta(arsDireta, dataInicio, dataFim):
     browser.find_element(By.XPATH, "/html/body/div[2]/div/div[1]/div/div[1]/p[1]/strong").click()
     time.sleep(1)
     browser.find_element(By.ID, "submit_label").click()
-    time.sleep(5)
+    time.sleep(3)
     # End of first section
 
     for item in arsDireta:
@@ -54,18 +54,12 @@ def minha_tarefa_direta(arsDireta, dataInicio, dataFim):
         time.sleep(1)
 
         datafim = browser.find_element(By.ID, "datafim")
-        datafim.click()
         datafim.clear()
-        time.sleep(1)
         datafim.send_keys(dataFim)
-        time.sleep(1)
 
         dataini = browser.find_element(By.ID, "dataini")
-        dataini.click()
-        time.sleep(1)
         dataini.clear()
         dataini.send_keys(dataInicio)
-        time.sleep(1)
 
         browser.find_element(By.XPATH, "/html/body/div[2]/div/div[1]/div/div[1]/p[1]/strong").click()
         time.sleep(1)

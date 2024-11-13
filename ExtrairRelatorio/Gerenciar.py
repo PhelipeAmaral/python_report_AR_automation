@@ -2,6 +2,10 @@ import ExtrairRelatorio.ac
 import ExtrairRelatorio.direta
 import ExtrairRelatorio.macrosafe
 import ExtrairRelatorio.quality
+import TransferirPasta.ac
+import TransferirPasta.direta
+import TransferirPasta.macrosafe
+import TransferirPasta.quality
 
 #dia_especifico = datetime.date(2024, 6, 7)
 #data_atual = datetime.date.today()
@@ -68,9 +72,23 @@ def gerenciarDireta():
     arsDireta = [r"https://arfast.acsoluti.com.br/certdig/fechamento",
                     r"https://arvirtus.acsoluti.com.br/certdig/fechamento",
                     r"https://arcigcd.acsoluti.com.br/certdig/fechamento"]
+    
+    ExtrairRelatorio.direta.minha_tarefa_direta(arsDireta, dataInicio, dataFim)
 
 
 def gerenciarMacrosafe():
-    arsDireta = [r"https://arbndcdesi.acsoluti.com.br/certdig/fechamento"]
+    arsMacro = [r"https://arbndcdesi.acsoluti.com.br/certdig/fechamento"]
 
-    ExtrairRelatorio.macrosafe.minha_tarefa_macrosafe(arsDireta, dataInicio, dataFim)
+    ExtrairRelatorio.macrosafe.minha_tarefa_macrosafe(arsMacro, dataInicio, dataFim)
+
+
+def gerenciarGeral():
+
+    gerenciarAC()
+    TransferirPasta.ac.transferir_pasta()
+    gerenciarQuality()
+    TransferirPasta.quality.transferir_pasta()
+    gerenciarDireta()
+    TransferirPasta.direta.transferir_pasta()
+    gerenciarMacrosafe()
+    TransferirPasta.macrosafe.transferir_pasta()
