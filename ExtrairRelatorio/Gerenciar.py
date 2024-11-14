@@ -2,10 +2,12 @@ import ExtrairRelatorio.ac
 import ExtrairRelatorio.direta
 import ExtrairRelatorio.macrosafe
 import ExtrairRelatorio.quality
+import SafeWeb.diario
 import TransferirPasta.ac
 import TransferirPasta.direta
 import TransferirPasta.macrosafe
 import TransferirPasta.quality
+import SafeWeb
 
 #dia_especifico = datetime.date(2024, 6, 7)
 #data_atual = datetime.date.today()
@@ -84,6 +86,7 @@ def gerenciarMacrosafe():
 
 def gerenciarGeral():
 
+    # Soluti
     gerenciarAC()
     TransferirPasta.ac.transferir_pasta()
     gerenciarQuality()
@@ -92,3 +95,6 @@ def gerenciarGeral():
     TransferirPasta.direta.transferir_pasta()
     gerenciarMacrosafe()
     TransferirPasta.macrosafe.transferir_pasta()
+    # SafeWeb
+    SafeWeb.diario.extrairRelatorio()
+    SafeWeb.diario.transferirSafeWeb()

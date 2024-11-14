@@ -28,7 +28,9 @@ if dia_da_semana < 5:
     #schedule.every().day.at("10:30").do(ExtrairRelatorio.Gerenciar.gerenciarMacrosafe)
     #schedule.every().day.at("09:18").do(TransferirPasta.macrosafe.transferir_pasta)
     # Geral
-    schedule.every().day.at("11:47").do(ExtrairRelatorio.Gerenciar.gerenciarGeral)
+    schedule.every().day.at("00:10").do(ExtrairRelatorio.Gerenciar.gerenciarGeral)
+    #schedule.every().day.at("01:00").do(SafeWeb.diario.extrairRelatorio)
+    #schedule.every().day.at("08:16").do(SafeWeb.diario.transferirSafeWeb)
 
 
 while True:
