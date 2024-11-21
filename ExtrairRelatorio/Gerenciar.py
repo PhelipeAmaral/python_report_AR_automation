@@ -2,12 +2,14 @@ import ExtrairRelatorio.ac
 import ExtrairRelatorio.direta
 import ExtrairRelatorio.macrosafe
 import ExtrairRelatorio.quality
+import Rename.rename_ac
 import SafeWeb.diario
 import TransferirPasta.ac
 import TransferirPasta.direta
 import TransferirPasta.macrosafe
 import TransferirPasta.quality
 import SafeWeb
+import Rename
 
 #dia_especifico = datetime.date(2024, 6, 7)
 #data_atual = datetime.date.today()
@@ -51,7 +53,8 @@ def gerenciarAC():
                 r"https://aridealcertificacaodigital.acsoluti.com.br/certdig/fechamento",
                 r"https://arcertifiquedigital.acsoluti.com.br/certdig/fechamento",
                 r"https://arsystemcd.acsoluti.com.br/certdig/fechamento",
-                r"https://aridtechcd.acsoluti.com.br/certdig/fechamento"]
+                r"https://aridtechcd.acsoluti.com.br/certdig/fechamento",
+                R"https://arawake.acsoluti.com.br/certdig/fechamento"]
 
     ExtrairRelatorio.ac.minha_tarefa_ac(arsAC, dataInicio, dataFim)
 
@@ -98,3 +101,7 @@ def gerenciarGeral():
     # SafeWeb
     SafeWeb.diario.extrairRelatorio()
     SafeWeb.diario.transferirSafeWeb()
+
+
+def renomearTransferirAC():
+    Rename.rename_ac.Renomear()

@@ -42,7 +42,8 @@ def transferir_pasta():
                 'fechamento (29).csv',
                 'fechamento (30).csv',
                 'fechamento (31).csv',
-                'fechamento (32).csv']
+                'fechamento (32).csv',
+                'fechamento (33).csv']
 
 
     for item in arquivosCSV:

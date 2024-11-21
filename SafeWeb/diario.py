@@ -16,9 +16,9 @@ def extrairRelatorio():
     browser.maximize_window()
 
     browser.get(r"https://sgc-pss.safewebpss.com.br/gerenciamentoac/")
-    time.sleep(3)
+    time.sleep(5)
     py.press('enter')
-    time.sleep(3)
+    time.sleep(10)
     browser.find_element(By.ID, "link6").click()
     time.sleep(1)
     browser.find_element(By.ID, "link9").click()

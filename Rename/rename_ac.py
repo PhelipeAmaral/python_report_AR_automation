@@ -1,117 +1,73 @@
-import pyautogui as py
-import time
+import shutil
+import os
+import subprocess
+from datetime import datetime, timedelta
 
-py.hotkey('win', 'r')
-py.press('enter')
-time.sleep(1)
-py.write('cd desktop')
-py.press('enter')
-time.sleep(1)
-py.write('cd relatorio')
-py.press('enter')
-time.sleep(1)
-py.write('cd relatorio_ac')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento.csv" "AR ESCRADPAR.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (1).csv" "AR ABS.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (2).csv" "AR WENEXT.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (3).csv" "AR SEVENREP.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (4).csv" "AR 1CERT.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (5).csv" "AR RENOVEAQUI.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (6).csv" "AR DIGITAL CERT.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (7).csv" "AR IDENTIDADE DIGITAL.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (8).csv" "AR QUALITY BAHIA.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (9).csv" "AR SOLUTEK PRIME.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (10).csv" "AR SOLUTEK.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (11).csv" "AR CERTPALMAS.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (12).csv" "AR POTIGUAR.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (13).csv" "AR CERT.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (14).csv" "AR UPSIGN.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (15).csv" "AR QC CERT.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (16).csv" "AR CERT IN.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (17).csv" "AR MR.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (18).csv" "AR CERTIFY.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (19).csv" "AR CERT SP.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (20).csv" "AR CERT TOTAL.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (21).csv" "AR A3.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (22).csv" "AR TERABYTE.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (23).csv" "AR IDBR.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (24).csv" "AR LTI.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (25).csv" "AR CERTIFICA SC.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (26).csv" "AR RUZZI.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (27).csv" "AR NW.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (28).csv" "AR TR TECNOLOGIA.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (29).csv" "AR IDEAL.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (30).csv" "AR CERTIFIQUE DIGITAL.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (31).csv" "AR SYSTEM.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (32).csv" "AR ID TECH.csv"')
-py.press('enter')
-time.sleep(1)
+dia_anterior = datetime.now() - timedelta(days=1)
+mes_atual = dia_anterior.strftime('%m')
+ano_atual = dia_anterior.year
 
-py.write('exit')
-py.press('enter')
+def Renomear():
+
+    diretorio = r"C:\Users\Direta\Desktop\Relatorio\Executaveis\rename_ac.exe"
+
+    subprocess.run([diretorio])
+    transferir_pasta()
+
+
+def transferir_pasta():
+    
+    # Caminhos para as pastas
+    pasta_downloads = os.path.expanduser('~/Desktop/Relatorio/relatorio_ac')
+    pasta_destino = os.path.expanduser(r'\\192.168.8.200\Relatórios Certificados' + f'\{ano_atual}\{mes_atual}_{ano_atual}')
+
+    # Lista de arquivos
+    arquivosCSV = [
+    "AR ESCRADPAR.csv",
+    "AR ABS.csv",
+    "AR WENEXT.csv",
+    "AR SEVENREP.csv",
+    "AR 1CERT.csv",
+    "AR RENOVEAQUI.csv",
+    "AR DIGITAL CERT.csv",
+    "AR IDENTIDADE DIGITAL.csv",
+    "AR QUALITY BAHIA.csv",
+    "AR SOLUTEK PRIME.csv",
+    "AR SOLUTEK.csv",
+    "AR CERTPALMAS.csv",
+    "AR POTIGUAR.csv",
+    "AR CERT.csv",
+    "AR UPSIGN.csv",
+    "AR QC CERT.csv",
+    "AR CERT IN.csv",
+    "AR MR.csv",
+    "AR CERTIFY.csv",
+    "AR CERT SP.csv",
+    "AR CERT TOTAL.csv",
+    "AR A3.csv",
+    "AR TERABYTE.csv",
+    "AR IDBR.csv",
+    "AR LTI.csv",
+    "AR CERTIFICA SC.csv",
+    "AR RUZZI.csv",
+    "AR NW.csv",
+    "AR TR TECNOLOGIA.csv",
+    "AR IDEAL.csv",
+    "AR CERTIFIQUE DIGITAL.csv",
+    "AR SYSTEM.csv",
+    "AR ID TECH.csv",
+    "AR AWAKE.csv"]
+
+
+    for item in arquivosCSV:
+
+        caminho_origem = os.path.join(pasta_downloads, item)
+        caminho_destino = os.path.join(pasta_destino, item)
+        
+        # Verifica se o arquivo existe na pasta de Downloads
+        if os.path.exists(caminho_origem):
+            # Move o arquivo para a pasta destino
+            shutil.move(caminho_origem, caminho_destino)
+            print(f'Arquivo movido para: {caminho_destino}')
+        else:
+            print(f'O arquivo {item} não foi encontrado na pasta Downloads.')
