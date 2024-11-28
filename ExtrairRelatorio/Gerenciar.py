@@ -54,7 +54,7 @@ def gerenciarAC():
                 r"https://arcertifiquedigital.acsoluti.com.br/certdig/fechamento",
                 r"https://arsystemcd.acsoluti.com.br/certdig/fechamento",
                 r"https://aridtechcd.acsoluti.com.br/certdig/fechamento",
-                R"https://arawake.acsoluti.com.br/certdig/fechamento"]
+                r"https://arawake.acsoluti.com.br/certdig/fechamento"]
 
     ExtrairRelatorio.ac.minha_tarefa_ac(arsAC, dataInicio, dataFim)
 
@@ -101,6 +101,7 @@ def gerenciarGeral():
     # SafeWeb
     SafeWeb.diario.extrairRelatorio()
     SafeWeb.diario.transferirSafeWeb()
+    Rename.rename_ac.Renomear()
 
 
 def renomearTransferirAC():

@@ -19,7 +19,7 @@ def transferir_pasta():
     
     # Caminhos para as pastas
     pasta_downloads = os.path.expanduser('~/Desktop/Relatorio/relatorio_ac')
-    pasta_destino = os.path.expanduser(r'\\192.168.8.200\Relatórios Certificados' + f'\{ano_atual}\{mes_atual}_{ano_atual}')
+    pasta_destino = os.path.expanduser(r'\\192.168.8.200\Relatórios Certificados' + f'\AC\{ano_atual}\{mes_atual}_{ano_atual}')
 
     # Lista de arquivos
     arquivosCSV = [
