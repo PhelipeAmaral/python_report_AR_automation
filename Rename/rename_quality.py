@@ -9,57 +9,9 @@ dia_anterior = datetime.now() - timedelta(days=1)
 mes_atual = dia_anterior.strftime('%m')
 ano_atual = dia_anterior.year
 
-py.hotkey('win', 'r')
-py.press('enter')
-time.sleep(1)
-py.write('cd desktop')
-py.press('enter')
-time.sleep(1)
-py.write('cd relatorio')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento.csv" "AR QUALITYCERT.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (1).csv" "AR VIRTUA.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (2).csv" "AR CONTAGEM.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (3).csv" "AR QUALITY MINAS.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (4).csv" "AR NUCLEO DIGITAL.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (5).csv" "AR BH BARREIRO.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (6).csv" "AR BETIM.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (7).csv" "AR SAVASSI.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (8).csv" "AR DELIVERYCERT.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (9).csv" "AR BH CENTRO.csv"')
-py.press('enter')
-time.sleep(1)
-py.write('ren "fechamento (10).csv" "AR CERTVIDEO.csv"')
-py.press('enter')
-
-time.sleep(1)
-
-py.write('exit')
-py.press('enter')
-
-
 def Renomear():
 
-    diretorio = r"C:\Users\Direta\Desktop\Relatorio\Executaveis\rename_ac.exe"
+    diretorio = r"C:\Users\Direta\Desktop\Relatorio\Executaveis\rename_quality.exe"
 
     subprocess.run([diretorio])
     transferir_pasta()

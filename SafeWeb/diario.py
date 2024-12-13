@@ -8,8 +8,8 @@ from selenium.webdriver.common.by import By
 import subprocess
 
 
-dataInicio = '01/11/2024'
-dataFim = '30/11/2024'
+dataFim = '31/12/2024'
+dataInicio = '01/12/2024'
 
 def extrairRelatorio():
     browser = webdriver.Chrome()

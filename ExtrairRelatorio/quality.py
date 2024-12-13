@@ -63,5 +63,5 @@ def minha_tarefa_quality(arsQuality, dataInicio, dataFim):
         browser.find_element(By.ID, "submit_label").click()
         time.sleep(3)
         if(item[len(arsQuality) - 1]):
-            time.sleep(8)
+            time.sleep(20)
         # End

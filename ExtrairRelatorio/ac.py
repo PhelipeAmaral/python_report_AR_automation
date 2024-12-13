@@ -17,7 +17,7 @@ def minha_tarefa_ac(arsAC, dataInicio, dataFim):
     py.click(x=376, y=520)
     time.sleep(2)
     py.press('enter')
-    time.sleep(1)
+    time.sleep(3)
 
     browser.find_element(By.ID, "gerarcsv").click()
     time.sleep(1)
@@ -41,7 +41,7 @@ def minha_tarefa_ac(arsAC, dataInicio, dataFim):
         browser.find_element(By.XPATH, "//*[@id=\"navbar\"]/ul[1]/li[2]/a").click()
         time.sleep(1)
         browser.find_element(By.ID, "precert").click()
-        time.sleep(1)
+        time.sleep(2)
 
         browser.find_element(By.ID, "gerarcsv").click()
         time.sleep(1)

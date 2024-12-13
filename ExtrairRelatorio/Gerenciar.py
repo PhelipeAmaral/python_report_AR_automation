@@ -3,6 +3,7 @@ import ExtrairRelatorio.direta
 import ExtrairRelatorio.macrosafe
 import ExtrairRelatorio.quality
 import Rename.rename_ac
+import Rename.rename_quality
 import SafeWeb.diario
 import TransferirPasta.ac
 import TransferirPasta.direta
@@ -10,12 +11,13 @@ import TransferirPasta.macrosafe
 import TransferirPasta.quality
 import SafeWeb
 import Rename
+import RelatoriosBD.financeiro
 
 #dia_especifico = datetime.date(2024, 6, 7)
 #data_atual = datetime.date.today()
 
-dataFim = '30/11/2024'
-dataInicio = '01/11/2024'
+dataFim = '31/12/2024'
+dataInicio = '01/12/2024'
 
 #date_now = datetime.datetime.now()
 #one_day_ago = date_now - datetime.timedelta(days=1)
@@ -76,7 +78,8 @@ def gerenciarQuality():
 def gerenciarDireta():
     arsDireta = [r"https://arfast.acsoluti.com.br/certdig/fechamento",
                     r"https://arvirtus.acsoluti.com.br/certdig/fechamento",
-                    r"https://arcigcd.acsoluti.com.br/certdig/fechamento"]
+                    r"https://arcigcd.acsoluti.com.br/certdig/fechamento"
+                    ]
     
     ExtrairRelatorio.direta.minha_tarefa_direta(arsDireta, dataInicio, dataFim)
 
@@ -102,7 +105,21 @@ def gerenciarGeral():
     SafeWeb.diario.extrairRelatorio()
     SafeWeb.diario.transferirSafeWeb()
     Rename.rename_ac.Renomear()
+    Rename.rename_quality.Renomear()
+    # BD
+    RelatoriosBD.financeiro.CanaisRevenda()
+
 
 
 def renomearTransferirAC():
     Rename.rename_ac.Renomear()
+
+
+def renomearTransferirQuality():
+    Rename.rename_quality.Renomear()
+
+def extrairRelatoriosFinanceiro():
+    RelatoriosBD.financeiro.CanaisRevenda()
+    RelatoriosBD.financeiro.CanaisDireta()
+    RelatoriosBD.financeiro.RelatorioSieg()
+    RelatoriosBD.financeiro.RelatorioNTW()
